@@ -1,0 +1,52 @@
+volumes:
+  db_storage:
+  n8n_storage:
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres_dev
+    restart: always
+    environment:
+      - POSTGRES_USER=Leslie
+      - POSTGRES_PASSWORD=CC6550
+      - POSTGRES_DB=n8n_db
+    volumes:
+      - db_storage:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    container_name: adminer_dev
+    restart: always
+    ports:
+      - "8080:8080"
+
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n_dev
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgres_dev
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=n8n_db
+      - DB_POSTGRESDB_USER=Leslie
+      - DB_POSTGRESDB_PASSWORD=CC6550
+      - N8N_ENCRYPTION_KEY=xixa3333and8flasharefuckingGAY
+    depends_on:
+      - postgres
+    volumes:
+      - n8n_storage:/home/node/.n8n
+
+# ===== 新增的 Python 後台服務 =====
+  python_app:
+    build: ./python_backend     # Docker 會自動去找該資料夾底下的 Dockerfile 來建造
+    image: python_app
+    container_name: python_backend_dev
+    restart: always
+    ports:
+      - "5000:5000"
+    # volumes:
+    #  - ./python_backend:/app
