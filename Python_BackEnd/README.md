@@ -2,7 +2,7 @@
 
 > Diet JARVIS 的 Python 後端：接收 n8n 傳來的語句，先判斷這句話「值不值得記錄」，再決定是否寫入 PostgreSQL 的 `diet_notes` 資料表。
 >
-> **此後端主要用來判斷使用者的疑問需不需要寫進資料庫中。**
+> **此後端主要用來判斷使用者的需求需不需要寫進資料庫中。**
 
 對應 docker-compose 中的 `python_app` 服務（容器 `python_backend_dev`）。整體架構與 n8n 流程請見 docker_space 的 README。
 
@@ -15,10 +15,22 @@
 3. **寫入資料庫**：判斷需儲存者，寫入 PostgreSQL 的 `diet_notes`（欄位 `note`、`eaten_at`），回傳新資料列的 `id`。
 
 ```text
-n8n ──POST /process──▶ Flask_dev.py ──▶ Flask_5498.analyze_message()
-                                           ├─ 疑問句？            → 略過
-                                           ├─ SVM 分數 ≤ 0？      → 略過
-                                           └─ SVM 分數 > 0        → save_note() ──▶ PostgreSQL（diet_notes）
+收到句子
+   │
+   ▼
+是空訊息？ ──是──▶ 不儲存
+   │否
+   ▼
+含疑問關鍵字？ ──是──▶ 不儲存（疑問句，不進入 SVM）
+   │否
+   ▼
+jieba 斷詞 ▶ SVM 計算分數
+   │
+   ▼
+分數 > 0？ ──否──▶ 不儲存
+   │是
+   ▼
+寫入 PostgreSQL（diet_notes）
 ```
 
 ## 檔案結構
