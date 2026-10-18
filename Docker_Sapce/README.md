@@ -30,9 +30,9 @@
 | `aliases` | 別名 |
 | `category` | 分類（早餐類、湯品類、飲品類、飯食類 等） |
 | `kcal` | 熱量 |
-| `protein` | 蛋白質（g） |
-| `fat` | 脂肪（g） |
-| `carb` | 碳水化合物（g） |
+| `protein` | 蛋白質 |
+| `fat` | 脂肪 |
+| `carb` | 碳水化合物 |
 
 ## n8n 工作流程（JARVIS_OX）
 
