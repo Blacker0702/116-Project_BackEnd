@@ -14,24 +14,9 @@
 2. **jieba + SVM 二分類**：用 jieba 斷詞，再以訓練好的 SVM 模型（`svm+jieba.joblib`）計算 `decision_function` 分數。分數 > 0 表示是需要記錄的飲食語句，否則略過。
 3. **寫入資料庫**：判斷需儲存者，寫入 PostgreSQL 的 `diet_notes`（欄位 `note`、`eaten_at`），回傳新資料列的 `id`。
 
-```text
-收到句子
-   │
-   ▼
-是空訊息？ ──是──▶ 不儲存
-   │否
-   ▼
-含疑問關鍵字？ ──是──▶ 不儲存（疑問句，不進入 SVM）
-   │否
-   ▼
-jieba 斷詞 ▶ SVM 計算分數
-   │
-   ▼
-分數 > 0？ ──否──▶ 不儲存
-   │是
-   ▼
-寫入 PostgreSQL（diet_notes）
-```
+### 收到句子後如何判斷
+
+![判斷流程](judge_flow.png)
 
 ## 檔案結構
 
