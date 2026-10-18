@@ -103,4 +103,4 @@ docker compose up -d --build
 
 ## 相關說明
 
-- Python_BackEnd 的功能與 API 請見該資料夾內的 README。
+- PythonEnd 的功能與 API 請見該資料夾內的 README。
