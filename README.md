@@ -4,15 +4,10 @@
 
 ---
 
-## docker_space 在本作品中的角色
+## Docker_Space 在本作品中的角色
 
 Diet JARVIS 分為三個部分，docker_space 屬於 **PC 端（Memory & Thinking）**：
-
-| 裝置 | 角色 |
-|------|------|
-| RPi4-1 | Listening & Speaking：KWS + STT、TTS |
-| RPi4-2 | Looking：YOLO 影像偵測 |
-| **PC（本儲存庫）** | **Memory & Thinking：以 Docker 提供記憶（資料庫）與思考（n8n + AI Agent）** |
+(Picture)
 
 ## 服務組成
 
