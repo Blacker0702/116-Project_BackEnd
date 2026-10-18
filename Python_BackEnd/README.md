@@ -1,4 +1,4 @@
-# BackEnd（PythonEnd）
+# PythonEnd
 
 > Diet JARVIS 的 Python 後端：接收 n8n 傳來的語句，先判斷這句話「值不值得記錄」，再決定是否寫入 PostgreSQL 的 `diet_notes` 資料表。
 >
