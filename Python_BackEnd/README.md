@@ -4,7 +4,7 @@
 >
 > **此後端主要用來判斷使用者的疑問需不需要寫進資料庫中。**
 
-對應 docker-compose 中的 `python_app` 服務（容器 `python_backend_dev`，port `5000`）。整體架構與 n8n 流程請見 docker_space 的 README。
+對應 docker-compose 中的 `python_app` 服務（容器 `python_backend_dev`）。整體架構與 n8n 流程請見 docker_space 的 README。
 
 ---
 
