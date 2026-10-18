@@ -36,6 +36,16 @@
 ```bash
 curl -i -X POST http://localhost:5000/health
 ```
+### `POST /svm_test`
+只測試判斷，**不寫入資料庫**，方便調整模型。
+
+```bash
+curl -X POST http://localhost:5000/svm_test \
+  -H "Content-Type: application/json" \
+  -d '{"usr_sentence": "我今天中午吃了牛肉麵"}'
+```
+
+回傳 `is_question`、SVM 原始 `score`、`svm_label`、`would_store`，且 `stored` 永遠為 `false`。
 
 ### `POST /process`
 正式流程：判斷並視情況存入資料庫。
@@ -56,17 +66,6 @@ curl -i -X POST http://localhost:5000/health
 | 寫入失敗 | 500 | `{"status":"error","message":"寫入資料庫失敗: ..."}` |
 
 > 被疑問句過濾攔下時，`score` 為 `null`（尚未跑 SVM）。
-
-### `POST /svm_test`
-只測試判斷，**不寫入資料庫**，方便調整模型。
-
-```bash
-curl -X POST http://localhost:5000/svm_test \
-  -H "Content-Type: application/json" \
-  -d '{"usr_sentence": "我今天中午吃了牛肉麵"}'
-```
-
-回傳 `is_question`、SVM 原始 `score`、`svm_label`、`would_store`，且 `stored` 永遠為 `false`。
 
 ## n8n 設定
 
