@@ -10,17 +10,6 @@ Diet JARVIS 分為三個部分，docker_space 屬於 **PC 端（Memory & Thinkin
 
 ## (Picture)
 
-## 服務組成
-
-| 服務 | 映像／來源 | 容器名稱 | Port | 在本作品中的功能 |
-|------|-----------|----------|------|------------------|
-| `postgres` | `postgres:16-alpine` | `postgres_dev` | 僅內部網路 | 儲存飲食紀錄（`diet_records.csv`），同時作為 n8n 的資料庫 |
-| `adminer` | `adminer` | `adminer_dev` | `8080` | 資料庫網頁管理介面，用來檢視與匯入飲食紀錄 |
-| `n8n` | `n8nio/n8n:latest` | `n8n_dev` | `5678` | 工作流程核心：接收語音語句、寫入／讀取資料庫、呼叫 AI Agent、分派結果 |
-| `python_app` | `./python_backend`（本地 build） | `python_backend_dev` | `5000` | **PythonEnd**：用來編輯 PostgreSQL 的後端（詳見該資料夾內的 README） |
-
-> `postgres` 沒有對外開 port，其他服務以主機名稱 `postgres_dev` 在 compose 內部網路連線。
-
 ## 資料放置位置
 
 | 資料 | 存放位置 | 用途 |
