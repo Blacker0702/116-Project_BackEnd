@@ -2,14 +2,6 @@
 
 > **Diet JARVIS** 專題中 **Docker 環境（docker_space）** 的功能說明：以 Docker Compose 一次啟動資料庫、資料庫管理介面、n8n 工作流程與 Python 後端。
 
----
-
-## Docker_Space 在本作品中的角色
-
-Diet JARVIS 分為三個部分，docker_space 屬於 **PC 端（Memory & Thinking）**：
-
-## (Picture)
-
 ## 資料放置位置
 
 | 資料 | 存放位置 | 用途 |
