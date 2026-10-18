@@ -7,6 +7,7 @@
 ## Docker_Space 在本作品中的角色
 
 Diet JARVIS 分為三個部分，docker_space 屬於 **PC 端（Memory & Thinking）**：
+---
 (Picture)
 
 ## 服務組成
