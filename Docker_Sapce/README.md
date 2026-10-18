@@ -1,9 +1,9 @@
 # 116-Project_Docker-Space
 
 > **Diet JARVIS** 專題中 **Docker 環境（docker_space）** 的功能說明：以 Docker Compose 一次啟動資料庫、資料庫管理介面、n8n 工作流程與 Python 後端。
-
-## 資料放置位置
 ---
+## 資料放置位置
+
 | 資料 | 存放位置 | 用途 |
 |------|----------|------|
 | `diet_records.csv` | **PostgreSQL** | 飲食紀錄（語音語句＋時間）。AI Agent 每次檢視最近 21 筆 |
