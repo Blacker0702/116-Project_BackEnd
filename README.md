@@ -39,7 +39,7 @@ Diet JARVIS 分為三個部分，docker_space 屬於 **PC 端（Memory & Thinkin
 
 ### `foods_ref.csv`（Google Sheets）
 
-共 135 筆，原檔以分號（`;`）分隔，匯入 Google Sheets 時請注意分隔符號設定。
+共 135 筆，內容皆是該食物每100g的營養資訊
 
 | 欄位 | 說明 |
 |------|------|
