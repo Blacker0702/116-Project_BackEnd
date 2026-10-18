@@ -45,7 +45,7 @@
 5. **`AI Agent`**：使用 Google Gemini Chat Model，並透過 **`Data_Ref`**（Google Sheets）查詢食物營養參考表。
 6. 輸出兩路：
    - **`to_RPi4-2`**（HTTP POST）：將結果傳給 RPi4-2。
-   - **`to_background`**（HTTP POST）：將結果傳給 `python_app`（`http://python_app:5000`），由 PythonEnd 負責編輯 PostgreSQL。
+   - **`to_PythonEnd`**（HTTP POST）：將結果傳給 `python_app`（`http://python_app:5000`），由 PythonEnd 負責編輯 PostgreSQL。
 
 ## 快速開始
 
